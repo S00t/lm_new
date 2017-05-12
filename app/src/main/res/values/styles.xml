@@ -1,0 +1,71 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="LogintTheme" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+
+    </style>
+
+
+    <!-- ACTIVITY SPLASH -->
+    <style name="ActivitySplash">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="MainScreenFragmentContainerBackground">
+        <item name="android:scaleType">center</item>
+    </style>
+
+
+    <style name="text_input_style">
+        <item name="android:textSize">@dimen/EditTextSize</item>
+        <item name="android:background">@drawable/round_edit_text</item>
+        <item name="android:paddingLeft">@dimen/EditTextPaddingLeft</item>
+        <item name="android:textColorHint">@color/lets_meet_edit_text_hint</item>
+        <item name="android:layout_marginTop">@dimen/LetsMeetEditTextMarginTop</item>
+        <item name="android:textCursorDrawable">@drawable/edit_text_cursor</item>
+    </style>
+
+    <style name="LoginLinearLayout">
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:background">@drawable/layout_rounded</item>
+        <item name="android:layout_marginTop">@dimen/FragmentMarginTop</item>
+        <item name="android:layout_marginBottom">@dimen/FragmentMarginBottom</item>
+        <item name="android:layout_marginLeft">@dimen/FragmentMarginLeft</item>
+        <item name="android:layout_marginRight">@dimen/FragmentMarginRight</item>
+        <item name="android:padding">@dimen/FragmentWhitePadding</item>
+    </style>
+
+    <style name="LetsMeetButton">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/LetsMeetButtonSize</item>
+        <item name="android:background">@drawable/round_button</item>
+    </style>
+
+
+    <style name="HintStyle">
+        <item name="android:textColor">@color/green</item>
+    </style>
+
+    <style name="ActivityLoginMail" parent="text_input_style">
+        <item name="android:hint">@string/login_hint</item>
+        <item name="android:background">@drawable/layout_rounded</item>
+        <item name="android:inputType">textEmailAddress</item>
+    </style>
+    <style name="ActivityLoginPassword" parent="text_input_style">
+        <item name="android:hint">@string/password_hint</item>
+        <item name="android:background">@drawable/layout_rounded</item>
+        <item name="android:inputType">textPassword</item>
+    </style>
+
+</resources>

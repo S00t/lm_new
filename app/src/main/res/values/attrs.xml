@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomTextInputLayout">
+        <attr name="CTILHintText" format="string"/>
+        <attr name="CTILText" format="string"/>
+        <attr name="singleLine" format="boolean"/>
+        <attr name="android:maxLength"/>
+        <attr name="android:textSize"/>
+        <attr name="android:inputType"/>
+        <attr name="hintStyle" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="DashedDivider">
+        <attr name="dashedDividerColor" format="enum">
+            <enum name="white" value="0"/>
+            <enum name="grey" value="1"/>
+        </attr>
+    </declare-styleable>
+
+</resources>

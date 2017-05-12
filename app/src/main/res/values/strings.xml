@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">LetsMeet</string>
+    <string name="login">Zaloguj</string>
+    <string name="password_hint">Hasło...</string>
+    <string name="login_hint">Login...</string>
+    <string name="or">lub</string>
+    <string name="cerate_account">...załóż konto</string>
+    <string name="error_max_characters_reached">Limit znaków wynosi</string>
+
+
+    <string name="authority">letsmeet.piotrek.io</string>
+    <string name="c_id">;TLQO0gF2DW6O5_J2jWQt8H!DKowF3EpRfV8RQDh</string>
+    <string name="ss">fSOa;H3a_qZ70vYhljGmqfgmSvmgL@tWU@wRO@1Nr7Fo8wmF;cm6n491dv37Ga5ycbebzvP=rV;-uVdlBmhxIyDr9jMpiZprrAwgDqh2.EhiYbKju4COQE28T=.e2CRS</string>
+</resources>

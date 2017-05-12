@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- GLOBAL -->
+    <!-- edit text -->
+    <dimen name="EditTextSize">15sp</dimen>
+    <dimen name="EditTextSizeHeader">16sp</dimen>
+    <dimen name="EditTextPaddingLeft">10dp</dimen>
+    <dimen name="EditTextButtonHeight">40dp</dimen>
+    <!--<dimen name="LetsMeetEditTextMarginTop">12dp</dimen>-->
+    <dimen name="LetsMeetEditTextCornerRadius">7dp</dimen>
+    <!-- spinner -->
+    <dimen name="LetsMeetEditTextSpinnerPaddingRight">3dp</dimen>
+    <!-- icons -->
+    <dimen name="LetsMeetIconsSizeHeight">20dp</dimen>
+    <dimen name="LetsMeetIconsSizeWidth">20dp</dimen>
+    <!-- button -->
+    <dimen name="LetsMeetButtonSize">17sp</dimen>
+    <dimen name="LetsMeetButtonCornerRadius">12dp</dimen>
+    <dimen name="LetsMeetButtonAccountCornerRadius">8dp</dimen>
+    <dimen name="LetsMeetButtonMargin">20dp</dimen>
+    <dimen name="LetsMeetButtonMarginTop">10dp</dimen>
+    <dimen name="LetsMeetButtonMarginBottom">10dp</dimen>
+    <!-- text -->
+    <dimen name="LetsMeetTextHeaderMarginBottom">5dp</dimen>
+    <dimen name="LetsMeetTextHeaderMarginTop">5dp</dimen>
+    <!-- image -->
+    <dimen name="LetsMeetImageBackgroundCorners">7dp</dimen>
+    <!-- dashed line -->
+    <dimen name="LetsMeetDashedLineHeightParent">3dp</dimen>
+    <dimen name="LetsMeetDashedLineHeight">1dp</dimen>
+    <dimen name="LetsMeetDashedLineHeightListDivider">1dp</dimen>
+    <!-- toggle button custom -->
+    <dimen name="ToggleButtonCircleCorners">16dp</dimen>
+    <dimen name="ToggleButtonCircleCalendarHeight">40dp</dimen>
+    <dimen name="ToggleButtonCircleCalendarWidth">40dp</dimen>
+    <dimen name="ToggleButtonCircleCalendarDiameter">5dp</dimen>
+    <dimen name="ToggleButtonCircleCalendarRadius">5dp</dimen>
+    <dimen name="ToggleButtonCircleCalendarMarginLeft">10dp</dimen>
+    <!-- button fb -->
+    <dimen name="LetsMeetFacebookButtonIconSize">28dp</dimen>
+    <dimen name="LetsMeetFacebookButtonIconMarginLeft">20dp</dimen>
+    <!-- wheel progress bar-->
+    <dimen name="LetsMeetProgressBarWidth">55dp</dimen>
+    <dimen name="LetsMeetProgressBarHeight">55dp</dimen>
+    <dimen name="LetsMeetProgressBarWidthWheel">80dp</dimen>
+    <dimen name="LetsMeetProgressBarHeightWheel">80dp</dimen>
+    <!-- spinner -->
+    <dimen name="LetsMeetSpinnerTextSize">16sp</dimen>
+
+
+    <!-- FRAGMENT -->
+    <dimen name="FragmentPaddingTop">30dp</dimen>
+    <dimen name="FragmentPaddingLeft">35dp</dimen>
+    <dimen name="FragmentPaddingRight">35dp</dimen>
+    <!-- FRAGMENT white -->
+    <dimen name="FragmentMarginTop">15dp</dimen>
+    <dimen name="FragmentMarginLeft">15dp</dimen>
+    <dimen name="FragmentMarginRight">15dp</dimen>
+    <dimen name="FragmentMarginBottom">15dp</dimen>
+    <dimen name="FragmentWhitePaddingTop">10dp</dimen>
+    <dimen name="FragmentWhitePaddingBottom">5dp</dimen>
+    <dimen name="FragmentWhitePadding">15dp</dimen>
+
+
+    <!-- FRAGMENT REGISTER -->
+    <!--<dimen name="FragmentRegisterEditTextEms">25</dimen>-->
+    <dimen name="FragmentRegisterEditTextMarginLeft">35dp</dimen>
+    <dimen name="FragmentRegisterEditTextMarginRight">35dp</dimen>
+    <!--<dimen name="FragmentRegisterEditTextSize">15sp</dimen>-->
+    <dimen name="FragmentRegisterButtonRegisterMarginTop">35dp</dimen>
+    <dimen name="FragmentRegisterButtonRegisterMarginLeft">35dp</dimen>
+    <dimen name="FragmentRegisterButtonRegisterMarginRight">35dp</dimen>
+    <dimen name="FragmentRegisterOrTextMarginTop">15dp</dimen>
+    <dimen name="FragmentRegisterButtonMarginTop">10dp</dimen>
+    <dimen name="FragmentRegisterButtonMarginBottom">10dp</dimen>
+    <!-- FRAGMENT EVENT ADD -->
+    <dimen name="FragmentEventAddDividerMarginTop">15dp</dimen>
+    <dimen name="FragmentEventAddDividerMarginLeft">15dp</dimen>
+    <dimen name="FragmentEventAddDividerMarginRight">15dp</dimen>
+    <dimen name="FragmentEventAddDividerHeight">15dp</dimen>
+    <dimen name="FragmentEventAddLayoutDateAndPlaceMarginTop">7.5dp</dimen>
+    <!--<dimen name="FragmentEventAddLayoutDateAndPlaceMarginLeft">35dp</dimen>-->
+    <!--<dimen name="FragmentEventAddLayoutDateAndPlaceMarginRight">35dp</dimen>-->
+    <dimen name="FragmentEventAddDateMarginRight">7.5dp</dimen>
+    <dimen name="FragmentEventAddDateMarginLeft">7.5dp</dimen>
+    <!--<dimen name="FragmentEventAddPaddingLeft">35dp</dimen>-->
+    <!--<dimen name="FragmentEventAddPaddingRight">35dp</dimen>-->
+    <dimen name="FragmentEventAddCheckBoxWidth">20dp</dimen>
+    <dimen name="FragmentEventAddCheckBoxHeight">20dp</dimen>
+    <dimen name="FragmentEventAddCheckBoxMarginTop">15dp</dimen>
+    <dimen name="FragmentEventAddCheckBoxPaddingLeft">10dp</dimen>
+    <dimen name="FragmentEventAddCheckBoxMarginRight">25dp</dimen>
+    <dimen name="FragmentEventAddButtonAddMarginTop">25dp</dimen>
+    <dimen name="FragmentEventAddCheckBoxMargin">3dp</dimen>
+    <dimen name="FragmentEventAddCheckBoxTextMarginLeft">10dp</dimen>
+    <dimen name="FragmentEventAddCategoryMargin">2dp</dimen>
+    <!-- FRAGMENT ACCOUNT -->
+    <dimen name="FragmentAccountImageAvatarWidth">125dp</dimen>
+    <dimen name="FragmentAccountImageAvatarHeight">125dp</dimen>
+    <dimen name="FragmentAccountImageAvatarCorners">7dp</dimen>
+    <dimen name="FragmentAccountImageAvatarMargin">1dp</dimen>
+    <dimen name="FragmentAccountDividerWidth">40dp</dimen>
+    <dimen name="FragmentAccountDividerHeight">15dp</dimen>
+    <dimen name="FragmentAccountDividerTopMarginSides">7.5dp</dimen>
+    <dimen name="FragmentAccountButtonsWidth">75dp</dimen>
+    <dimen name="FragmentAccountButtonsHeight">35dp</dimen>
+    <dimen name="FragmentAccountButtonsAvatarHeight">25dp</dimen>
+    <dimen name="FragmentAccountButtonIconAvatarHeight">12dp</dimen>
+    <dimen name="FragmentAccountButtonIconAvatarMarginLeft">6dp</dimen>
+    <dimen name="FragmentAccountChangeAvatarPaddingRight">8dp</dimen>
+    <dimen name="FragmentAccountRemoveAvatarPaddingRight">12dp</dimen>
+
+    <!--<dimen name="FragmentAccountPhoneAndPlaceParentMarginTop">0dp</dimen>-->
+    <dimen name="FragmentAccountPhoneMarginRight">7.5dp</dimen>
+    <dimen name="FragmentAccountPlaceMarginLeft">7.5dp</dimen>
+    <dimen name="FragmentAccountSaveButtonMarginTop">15dp</dimen>
+    <!-- FRAGMENT CHANGE PASSWORD -->
+    <dimen name="FragmentChangePasswordParentMarginTop">15dp</dimen>
+    <dimen name="FragmentChangePasswordDividerHeight">15dp</dimen>
+    <dimen name="FragmentChangeButtonChangeMarginTop">25dp</dimen>
+    <!-- FRAGMENT EVENT LIST -->
+    <dimen name="FragmentEventListItemMarginsVertical">10dp</dimen>
+    <dimen name="FragmentEventListItemPadding">6dp</dimen>
+    <!--<dimen name="ListEventIconWidth">25dp</dimen>-->
+    <!--<dimen name="ListEventIconHeight">25dp</dimen>-->
+    <dimen name="ListEventIconMarginRight">5dp</dimen>
+    <dimen name="ListEventIconAndDateParentMarginBottom">3dp</dimen>
+    <dimen name="ListEventPaddingLeft">5dp</dimen>
+    <dimen name="ListEventPaddingRight">5dp</dimen>
+    <dimen name="ListEventTitleAndParticipantsNumberParentMarginBottom">5dp</dimen>
+    <dimen name="ListEventTitleAndParticipantsNumberParentMarginTop">5dp</dimen>
+    <dimen name="ListEventParticipantsWidth">40dp</dimen>
+    <dimen name="ListEventParticipantsHeight">30dp</dimen>
+    <!-- FRAGMENT EVENT DETAILS -->
+    <dimen name="EventDetailsParticipantsWidth">40dp</dimen>
+    <dimen name="EventDetailsParticipantsHeight">30dp</dimen>
+    <dimen name="EventDetailsIconMarginRight">5dp</dimen>
+    <dimen name="EventDetailsIconMarginBottom">5dp</dimen>
+    <dimen name="EventDetailMapHeight">250dp</dimen>
+    <dimen name="EventDetailMapMarginBottom">5dp</dimen>
+    <dimen name="FragmentEventDetailsMarginTop">12dp</dimen>
+    <dimen name="FragmentEventDetailsMarginBottom">12dp</dimen>
+    <dimen name="FragmentEventDetailsDescriptionAndParticipantsNumberMarginBottom">15dp</dimen>
+    <!-- FRAGMENT LOGO -->
+    <dimen name="FragmentLoginLogoMarginTop">15dp</dimen>
+    <dimen name="FragmentLoginLogoHeight">150dp</dimen>
+    <dimen name="FragmentLoginMailMarginTop">150dp</dimen>
+    <dimen name="FragmentLoginPasswordMarginTop">15dp</dimen>
+    <dimen name="FragmentLoginButtonLoginMarginTop">20dp</dimen>
+    <dimen name="FragmentLoginButtonRegisterMarginTop">15dp</dimen>
+    <!-- DRAWER -->
+    <dimen name="HeaderParent">178dp</dimen>
+    <dimen name="HeaderParentMarginLeft">16dp</dimen>
+    <dimen name="HeaderTextSize">14sp</dimen>
+    <dimen name="HeaderMailMarginTop">5dp</dimen>
+    <dimen name="HeaderAvatarWidth">70dp</dimen>
+    <dimen name="HeaderAvatarHeight">70dp</dimen>
+    <dimen name="HeaderAvatarMarginLeft">16dp</dimen>
+    <dimen name="HeaderAvatarMarginTop">38dp</dimen>
+    <dimen name="HeaderParentNameAndMailHeight">56dp</dimen>
+    <!-- CALENDAR -->
+    <dimen name="CalendarCellWidth">40dp</dimen>
+    <dimen name="CalendarCellWidthHours">35dp</dimen>
+    <dimen name="CalendarCellHeight">32dp</dimen>
+    <dimen name="CalendarCellDaysHeight">20dp</dimen>
+    <dimen name="FragmentCalendarGridElement">6dp</dimen>
+    <!--<dimen name="FragmentCalendarGridElementEventNumberCircleWidth">20dp</dimen>-->
+    <!--<dimen name="FragmentCalendarGridElementEventNumberCircleHeight">20dp</dimen>-->
+    <dimen name="FragmentCalendarGridElementMarginLeft">2dp</dimen>
+    <dimen name="FragmentCalendarGridElementTimeLineMarginLeft">3dp</dimen>
+    <dimen name="FragmentCalendarGridElementTimeLineWidth">3dp</dimen>
+    <dimen name="FragmentCalendarGridElementEventNumberTextSize">10sp</dimen>
+    <dimen name="FragmentCalendarDaysAndCalendarMarginLeft">53dp</dimen>
+    <dimen name="FragmentCalendarButtonChangeViewWidth">110dp</dimen>
+    <dimen name="FragmentCalendarButtonChangeViewMarginTop">15dp</dimen>
+    <!-- event list -->
+    <dimen name="FragmentCalendarEventListItemPadding">7dp</dimen>
+    <dimen name="FragmentCalendarEventListPlaceLogoHeight">32dp</dimen>
+    <dimen name="FragmentCalendarEventListAddWidth">37dp</dimen>
+    <dimen name="FragmentCalendarEventListAddHeight">32dp</dimen>
+    <dimen name="FragmentCalendarEventListAddIconSize">20dp</dimen>
+    <dimen name="FragmentCalendarEventListTextParentMarginLeft">7dp</dimen>
+    <dimen name="FragmentCalendarEventListTitleTextSize">14sp</dimen>
+    <dimen name="FragmentCalendarEventListDateAndAddressTextSize">10sp</dimen>
+    <dimen name="FragmentCalendarEventListParentMarginLeft">55dp</dimen>
+    <dimen name="LetsMeetEditTextMarginTop">15dp</dimen>
+    <!-- FRAGMENT SEARCH -->
+    <dimen name="FragmentSearchButtonSearchMarginTop">15dp</dimen>
+    <dimen name="FragmentSearchSpinnerHeight">50dp</dimen>
+    <dimen name="FragmentSearchMainCorners">8dp</dimen>
+    <dimen name="FragmentSearchMainSearchButtonWidth">40dp</dimen>
+    <dimen name="FragmentSearchMainSearchButtonPadding">12dp</dimen>
+    <dimen name="FragmentSearchMainCategoryPaddingLeft">5dp</dimen>
+    <dimen name="FragmentSearchMainCategoryMarginBottom">15dp</dimen>
+    <dimen name="FragmentSearchMainCategoryPaddingVertical">7dp</dimen>
+
+</resources>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#222222</color>
+    <color name="colorPrimaryDark">#0f34d3</color>
+    <color name="textPrimary">#FFFFFF</color>
+    <color name="textPrimaryDark">#000000</color>
+    <color name="glow">#ded61e</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="orange">#f0ad4e</color>
+    <color name="green">#5cb85c</color>
+    <color name="blue">#337ab7</color>
+    <color name="red">#de4b39</color>
+    <color name="black">#000</color>
+
+    <color name="text_on_white_background">#777777</color>
+    <color name="facebook_main">#3b5998</color>
+    <color name="letsmeet_blue">#0f60b3</color>
+    <color name="fragment_background">#ccffffff</color>
+    <color name="event_list_divider">#cc9E9E9E</color>
+
+    <color name="calendar_timeline_default">#ffffff</color>
+    <color name="calendar_timeline_grey">#B6B6B6</color>
+    <color name="calendar_event_number_shape">#0f60b3</color>
+
+    <color name="toggle_button_circle_reservation">#2E7D32</color>
+    <color name="toggle_button_circle_reservation_background">#E8EAF6</color>
+    <color name="toggle_button_circle_events">#0f60b3</color>
+    <color name="toggle_button_circle_events_background">#F1F8E9</color>
+
+    <color name="lets_meet_edit_text">#FFFFFF</color>
+    <color name="lets_meet_edit_text_border">#a0a0a0</color>
+    <color name="lets_meet_edit_text_hint">#bbb</color>
+    <color name="lets_meet_edit_text_cursor">#bbb</color>
+    <color name="lets_meet_checkmark">#FFFFFF</color>
+    <color name="lets_meet_checkmark_checked">#626262</color>
+    <color name="button_red">#DE4B39</color>
+    <color name="button_green">#5cb85c</color>
+
+    <color name="list_item_title">#fff</color>
+    <color name="list_background">#FFFFFF</color>
+    <color name="list_background_second">#B6B6B6</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="list_background_pressed">#992416</color>
+    <color name="list_divider">#272727</color>
+    <color name="counter_text_bg">#626262</color>
+    <color name="counter_text_color">#c5c4c4</color>
+</resources>

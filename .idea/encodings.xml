@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/src/main/java/soot/letsmeet/di/ApplicationComponent.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/soot/letsmeet/di/ApplicationModule.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/soot/letsmeet/di/ContextScope/CameraScope/CameraComponent.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/soot/letsmeet/di/ContextScope/CameraScope/CameraModule.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/soot/letsmeet/di/ContextScope/ConnectivityModule.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/soot/letsmeet/di/ContextScope/ContextComponent.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/soot/letsmeet/di/ContextScope/ContextScope.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/soot/letsmeet/di/ContextScope/FileServiceScope/FileModule.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/soot/letsmeet/di/ContextScope/FileServiceScope/FileServiceComponent.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/soot/letsmeet/di/ContextScope/FileServiceScope/NotificationModule.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/soot/letsmeet/di/EventBusModule.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/soot/letsmeet/di/NetworkModule.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/soot/letsmeet/di/RepositoryModule.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/soot/letsmeet/models/Logger.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/soot/letsmeet/sqlite/impl/BaseSQLImpl.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/soot/letsmeet/sqlite/impl/LoggerSQLImpl.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/soot/letsmeet/sqlite/repository/LoggerRepository.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/soot/letsmeet/utils/ActionHelper.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/soot/letsmeet/utils/AppLogger.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/soot/letsmeet/utils/CameraUtil.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/soot/letsmeet/utils/ConnectivityUtil.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/soot/letsmeet/utils/FileLoggingTree.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/soot/letsmeet/utils/FileUtil.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/soot/letsmeet/utils/MoneyUtils.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/soot/letsmeet/utils/NotificationUtil.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/soot/letsmeet/utils/TextFormatUtils.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/soot/letsmeet/utils/TimeUtil.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/soot/letsmeet/utils/ViewUtils.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/soot/letsmeet/utils/rx/ThreadsTransformer.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/edit_text_cursor.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/layout_rounded.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/logo.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/round_button.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/round_button_green.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/round_button_left_blue.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/round_button_orange.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/round_button_red.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/round_button_right_yellow.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/round_edit_text.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/rounded_corners.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/shape_line_dashed.xml" charset="UTF-8" />
+    <file url="PROJECT" charset="windows-1250" />
+  </component>
+</project>
