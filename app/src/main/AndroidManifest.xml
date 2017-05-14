@@ -2,50 +2,51 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="soot.letsmeet">
 
-    <!-- Network-->
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!-- Network -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <!-- Location-->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <!-- Location -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
-    <!-- Storage-->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-
-    <uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-
+    <!-- Storage -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:name=".LetsMeetApplication">
-        <activity android:name=".activities.MainActivity">
 
-        </activity>
-        <activity android:name=".activities.login.LoginActivity"
+    <application
+        android:name=".LetsMeetApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".activities.MainActivity"></activity>
+        <activity
+            android:name=".activities.login.LoginActivity"
             android:theme="@style/LogintTheme"
-            android:windowSoftInputMode="stateHidden|adjustResize|adjustPan"
-            >
+            android:windowSoftInputMode="stateHidden|adjustResize|adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.SplashActivity"></activity>
+        <activity android:name=".activities.SplashActivity" />
 
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="4c0606149cbbfbc745e73d0c29a186364be14024"
-            />
+            android:value="4c0606149cbbfbc745e73d0c29a186364be14024" />
+
+        <activity android:name=".activities.register.RegisterActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize|adjustPan">
+
+        </activity>
     </application>
 
 </manifest>

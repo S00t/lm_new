@@ -32,14 +32,16 @@
 
                 <soot.letsmeet.customviews.CustomTextImputLayout
                     android:layout_gravity="center_vertical"
+                    android:hint="@string/login_hint"
                     android:id="@+id/loginInput"
-                    style="@style/ActivityLoginMail"
+                    style="@style/CustomEditTextMailInput"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/EditTextButtonHeight"/>
 
                 <soot.letsmeet.customviews.CustomTextImputLayout
                     android:id="@+id/passwordInput"
-                    style="@style/ActivityLoginPassword"
+                    android:hint="@string/password_hint"
+                    style="@style/CustomEditTextPasswordInput"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/EditTextButtonHeight"
                    />
@@ -114,10 +116,10 @@
                     android:layout_height="@dimen/EditTextButtonHeight"
                     android:gravity="center"
                     android:text="@string/cerate_account"
+                    android:onClick="registerClick"
+                    android:textColor="@color/text_on_white_background"
                     fontPath="fonts/Dosis-Regular.otf"
                     />
-
-
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

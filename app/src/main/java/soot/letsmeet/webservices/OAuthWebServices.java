@@ -18,5 +18,5 @@ public interface OAuthWebServices {
 
         @FormUrlEncoded
         @POST("oauth/token/")
-        Observable<TokenResponse> getAccessToken(@Header(OAuthConstants.AUTHORIZATION) String autorizatiohn, @FieldMap Map<String, String> fields);
+        Observable<TokenResponse> getAccessToken(@Header(OAuthConstants.temp) String autorization, @FieldMap(encoded = true) Map<String, String> fields);
 }

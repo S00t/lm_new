@@ -1,28 +1,52 @@
 package soot.letsmeet.webservices.responses;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by ggla00 on 2017-05-12.
  */
 
-public class TokenResponse {
+public class TokenResponse  {
 
+    @SerializedName("access_token")
+    @Expose
     private String accessToken;
+    @SerializedName("token_type")
+    @Expose
     private String tokenType;
-    private Integer expiresIn;
+    @SerializedName("expires_in")
+    @Expose
+    private Long expiresIn;
+    @SerializedName("refresh_token")
+    @Expose
     private String refreshToken;
+    @SerializedName("scope")
+    @Expose
     private String scope;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    public TokenResponse(String accessToken, String tokenType, Integer expiresIn, String refreshToken, String scope, Map<String, Object> additionalProperties) {
+    /**
+     * No args constructor for use in serialization
+     *
+     */
+    public TokenResponse() {
+    }
+
+    /**
+     *
+     * @param scope
+     * @param tokenType
+     * @param accessToken
+     * @param expiresIn
+     * @param refreshToken
+     */
+    public TokenResponse(String accessToken, String tokenType, Long expiresIn, String refreshToken, String scope) {
+        super();
         this.accessToken = accessToken;
         this.tokenType = tokenType;
         this.expiresIn = expiresIn;
         this.refreshToken = refreshToken;
         this.scope = scope;
-        this.additionalProperties = additionalProperties;
     }
 
     public String getAccessToken() {
@@ -33,6 +57,11 @@ public class TokenResponse {
         this.accessToken = accessToken;
     }
 
+    public TokenResponse withAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+        return this;
+    }
+
     public String getTokenType() {
         return tokenType;
     }
@@ -41,12 +70,22 @@ public class TokenResponse {
         this.tokenType = tokenType;
     }
 
-    public Integer getExpiresIn() {
+    public TokenResponse withTokenType(String tokenType) {
+        this.tokenType = tokenType;
+        return this;
+    }
+
+    public Long getExpiresIn() {
         return expiresIn;
     }
 
-    public void setExpiresIn(Integer expiresIn) {
+    public void setExpiresIn(Long expiresIn) {
         this.expiresIn = expiresIn;
+    }
+
+    public TokenResponse withExpiresIn(Long expiresIn) {
+        this.expiresIn = expiresIn;
+        return this;
     }
 
     public String getRefreshToken() {
@@ -57,6 +96,11 @@ public class TokenResponse {
         this.refreshToken = refreshToken;
     }
 
+    public TokenResponse withRefreshToken(String refreshToken) {
+        this.refreshToken = refreshToken;
+        return this;
+    }
+
     public String getScope() {
         return scope;
     }
@@ -65,11 +109,10 @@ public class TokenResponse {
         this.scope = scope;
     }
 
-    public Map<String, Object> getAdditionalProperties() {
-        return additionalProperties;
+    public TokenResponse withScope(String scope) {
+        this.scope = scope;
+        return this;
     }
 
-    public void setAdditionalProperties(Map<String, Object> additionalProperties) {
-        this.additionalProperties = additionalProperties;
-    }
+
 }

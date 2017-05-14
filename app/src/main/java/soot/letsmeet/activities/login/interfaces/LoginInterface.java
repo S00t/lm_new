@@ -27,4 +27,5 @@ public interface LoginInterface {
 
     void onUserAccountBlocked();
     void onChangePassError(@StringRes int message);
+    void showToast(String message);
 }

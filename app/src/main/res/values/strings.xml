@@ -11,4 +11,9 @@
     <string name="authority">letsmeet.piotrek.io</string>
     <string name="c_id">;TLQO0gF2DW6O5_J2jWQt8H!DKowF3EpRfV8RQDh</string>
     <string name="ss">fSOa;H3a_qZ70vYhljGmqfgmSvmgL@tWU@wRO@1Nr7Fo8wmF;cm6n491dv37Ga5ycbebzvP=rV;-uVdlBmhxIyDr9jMpiZprrAwgDqh2.EhiYbKju4COQE28T=.e2CRS</string>
+    <string name="name">Imię...</string>
+    <string name="surname">Nazwisko</string>
+    <string name="email">Email</string>
+    <string name="repeat_password">Powtórz hasło</string>
+    <string name="register">Zarejestruj</string>
 </resources>

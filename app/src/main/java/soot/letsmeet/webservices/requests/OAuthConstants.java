@@ -26,5 +26,6 @@ public class OAuthConstants {
     public static final int HTTP_OK = 200;
     public static final int HTTP_FORBIDDEN = 403;
     public static final int HTTP_UNAUTHORIZED = 401;
+    public static final String temp = "Authorization ;TLQO0gF2DW6O5_J2jWQt8H!DKowF3EpRfV8RQDh fSOa;H3a_qZ70vYhljGmqfgmSvmgL@tWU@wRO@1Nr7Fo8wmF;cm6n491dv37Ga5ycbebzvP=rV;-uVdlBmhxIyDr9jMpiZprrAwgDqh2.EhiYbKju4COQE28T=.e2CRS";
 }
 

@@ -54,4 +54,16 @@ public class Token {
 //                .grantType("refresh_token").build();
 //        return OAuthUtils.refreshAccessToken(this, oauthConfig);
 //    }
+
+
+    @Override
+    public String toString() {
+        return "Token{" +
+                "expiresIn=" + expiresIn +
+                ", expiresAt=" + expiresAt +
+                ", tokenType='" + tokenType + '\'' +
+                ", refreshToken='" + refreshToken + '\'' +
+                ", accessToken='" + accessToken + '\'' +
+                '}';
+    }
 }

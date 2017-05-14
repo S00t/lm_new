@@ -56,16 +56,27 @@
     <style name="HintStyle">
         <item name="android:textColor">@color/green</item>
     </style>
-
-    <style name="ActivityLoginMail" parent="text_input_style">
-        <item name="android:hint">@string/login_hint</item>
+    <style name="CustomEditTextInput" parent="text_input_style">
+        <item name="android:background">@drawable/layout_rounded</item>
+        <item name="android:inputType">text</item>
+    </style>
+    <style name="CustomEditTextMailInput" parent="text_input_style">
         <item name="android:background">@drawable/layout_rounded</item>
         <item name="android:inputType">textEmailAddress</item>
     </style>
-    <style name="ActivityLoginPassword" parent="text_input_style">
-        <item name="android:hint">@string/password_hint</item>
+    <style name="CustomEditTextPasswordInput" parent="text_input_style">
         <item name="android:background">@drawable/layout_rounded</item>
         <item name="android:inputType">textPassword</item>
+    </style>
+
+    <style name="LetsMeetFragmentWhite">
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@drawable/fragment_rounded</item>
+        <item name="android:layout_marginTop">@dimen/FragmentMarginTop</item>
+        <item name="android:layout_marginBottom">@dimen/FragmentMarginBottom</item>
+        <item name="android:layout_marginLeft">@dimen/FragmentMarginLeft</item>
+        <item name="android:layout_marginRight">@dimen/FragmentMarginRight</item>
+        <item name="android:padding">@dimen/FragmentWhitePadding</item>
     </style>
 
 </resources>

@@ -1,12 +1,14 @@
 package soot.letsmeet.activities.login;
 
 import android.Manifest;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Toast;
 
 import javax.inject.Inject;
 
@@ -16,6 +18,7 @@ import soot.letsmeet.LetsMeetApplication;
 import soot.letsmeet.R;
 import soot.letsmeet.activities.login.controllers.LoginController;
 import soot.letsmeet.activities.login.interfaces.LoginInterface;
+import soot.letsmeet.activities.register.RegisterActivity;
 import soot.letsmeet.databinding.ActivityLoginBinding;
 import soot.letsmeet.di.ContextScope.ConnectivityModule;
 import timber.log.Timber;
@@ -81,17 +84,22 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface {
     }
 
     public void loginClick(View v) {
-        mLoginBinding.loginInput.setEnabled(false);
-        mLoginBinding.passwordInput.setEnabled(false);
-        mLoginBinding.loginButtonLogin.setEnabled(false);
+//        mLoginBinding.loginInput.setEnabled(false);
+//        mLoginBinding.passwordInput.setEnabled(false);
+//        mLoginBinding.loginButtonLogin.setEnabled(false);
 
 
         if ((mController.isNetworkAvaible()) && mViewState != STATE_CHANGE_PASSWD) {
             mController.login(mLoginBinding.loginInput.getText() != null ? mLoginBinding.loginInput.getText().toString().trim() : null, mLoginBinding.passwordInput.getText().toString());
         }
+    }
 
-//        else {
-//            mController.changePasswordOnline(mLoginBinding.loginLoginInput.getText() != null ? mLoginBinding.loginLoginInput.getText().trim() : null, mLoginBinding.loginPasswordInput.getText(), mLoginBinding.loginUserPasswordInput.getText(), mLoginBinding.loginUserPasswordRepasteInput.getText());
-//        }
+    public void registerClick(View v){
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
+    }
+
+    public void showToast(String message){
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
 }
