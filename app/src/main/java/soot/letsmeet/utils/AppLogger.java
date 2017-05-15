@@ -11,6 +11,7 @@ public class AppLogger {
             Timber.plant(new Timber.DebugTree());
         }
         Timber.plant(new FileLoggingTree());
+        Timber.plant(new CrashlyticsTree());
     }
 
     public static void d(String s, Object... objects) {

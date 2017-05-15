@@ -11,7 +11,9 @@ import dagger.Module;
 import dagger.Provides;
 import soot.letsmeet.sqlite.DatabaseHelper;
 import soot.letsmeet.sqlite.impl.LoggerSQLImpl;
+import soot.letsmeet.sqlite.impl.TokenSQLImpl;
 import soot.letsmeet.sqlite.repository.LoggerRepository;
+import soot.letsmeet.sqlite.repository.TokenRepository;
 
 @Module
 public class RepositoryModule {
@@ -19,6 +21,13 @@ public class RepositoryModule {
     @Singleton
     ConnectionSource providesConnectionSource(Application app) {
         return new AndroidConnectionSource(new DatabaseHelper(app));
+    }
+
+    @Provides
+    @Singleton
+    TokenRepository providesTokenRepository(ConnectionSource connectionSource) {
+        return new TokenSQLImpl(connectionSource);
+
     }
 
 //    @Provides

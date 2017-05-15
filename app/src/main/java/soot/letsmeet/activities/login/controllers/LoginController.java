@@ -6,6 +6,8 @@ import android.support.annotation.Nullable;
 
 import javax.inject.Inject;
 
+import retrofit2.adapter.rxjava.HttpException;
+import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import soot.letsmeet.BuildConfig;
@@ -37,7 +39,7 @@ public class LoginController extends BaseController<LoginInterface> {
     protected TokenRepository mTokenRepository;
 
     private HandlerThread mHandlerThread;
-
+    private Token mToken;
     @Inject
     public LoginController() {
         super();
@@ -76,12 +78,21 @@ public class LoginController extends BaseController<LoginInterface> {
 
     public void login(String login, String password) {
         OAuth2Config mOAuth2Config = new OAuth2Config.OAuth2ConfigBuilder(login, password, BuildConfig.c_id, BuildConfig.ss).grantType("password").build();
-        mOAuthWebServices.getAccessToken(TokenUtil.getBasicAuthorizationHeader(login, password),
-                TokenUtil.buildTokenRequest(mOAuth2Config))
+        mOAuthWebServices.getAccessToken(TokenUtil.buildTokenRequest(mOAuth2Config))
                 .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread()).
+                .onErrorResumeNext(throwable -> {
+                    if(throwable instanceof HttpException) {
+                        HttpException exception = (HttpException) throwable;
+                        switch (exception.code()) {
+                            case 500:
+
+                                break;
+                        }
+                    }
+                    return Observable.empty();
+                }).observeOn(AndroidSchedulers.mainThread()).
                 subscribe(tokenResponse -> {
-                    generateToken(tokenResponse);
+                    storeToken(tokenResponse);
         }, throwable -> {
                     Timber.e(throwable);
                     loginError();
@@ -89,24 +100,32 @@ public class LoginController extends BaseController<LoginInterface> {
     }
 
     private void loginError() {
-        Timber.e("B³¹d logowania");
+        Timber.e("BÅ‚Ä…d logowania");
         if (isViewPresent()){
-            getView().showToast("B³¹d logowania, spróbuj jeszcze raz");
+            getView().showToast("BÅ‚Ä…d logowania, sprÃ³buj jeszcze raz");
         } else{
-            Timber.e("B³¹d logowania, w dodatku coœ jeb³o");
+            Timber.e("BÅ‚Ä…d logowania, w dodatku coÅ› jebÅ‚o");
         }
     }
 
-    private Token generateToken(TokenResponse mTokenResponse){
-        Token token;
+    private void storeToken(TokenResponse mTokenResponse){
 
-        if(mTokenResponse != null){
-            token = new Token(mTokenResponse.getExpiresIn(),mTokenResponse.getTokenType(),mTokenResponse.getRefreshToken(),mTokenResponse.getAccessToken());
+        if(mTokenResponse != null && mTokenResponse.getAccessToken()!=null && !mTokenResponse.getAccessToken().isEmpty()){
+            mToken = new Token(mTokenResponse.getAccessToken(),mTokenResponse.getExpiresIn(),mTokenResponse.getTokenType(),mTokenResponse.getRefreshToken());
+            boolean createOrUpdateSucess = mTokenRepository.createOrUpdate(mToken);
+
+            if (!createOrUpdateSucess) {
+                Timber.e("Error creating or updating token in databse");
+            }
+            //w tym miejscu uÅ¼ytkownik powinien byÄ‡ widoczny w bazie
+            if (mTokenRepository.findToken() == null) {
+                Timber.e("No token found after succesful login and tries to save in database");
+            }
         } else {
-            Timber.e("TokenResponse null");
-            return null;
+            Timber.e("TokenResponse null or something bad happen");
+
         }
-        return token;
+
     }
 }
 

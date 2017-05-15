@@ -16,4 +16,7 @@
     <string name="email">Email</string>
     <string name="repeat_password">Powtórz hasło</string>
     <string name="register">Zarejestruj</string>
+    <string name="login_password_empty">Pola login i hasło nie mogą być puste</string>
+    <string name="password_empty">Błędne hasło</string>
+    <string name="login_empty">Błędny login</string>
 </resources>

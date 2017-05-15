@@ -49,7 +49,7 @@ public class TokenUtil {
         Map<String, String> fieldsMap = new HashMap<>();
 
         fieldsMap.put(OAuthConstants.GRANT_TYPE, "refresh_token");
-        fieldsMap.put(OAuthConstants.REFRESH_TOKEN, token.getRefreshToken());
+        fieldsMap.put(OAuthConstants.REFRESH_TOKEN, token.getmRefreshToken());
 
         if (isValid(clientId)) {
             fieldsMap.put(OAuthConstants.CLIENT_ID,

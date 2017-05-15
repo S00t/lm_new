@@ -1,69 +1,63 @@
 package soot.letsmeet.models;
 
-public class Token {
+import com.google.gson.annotations.SerializedName;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
 
-    private final Long expiresIn;
-    private final Long expiresAt;
-    private final String tokenType;
-    private final String refreshToken;
-    private final String accessToken;
+import java.io.Serializable;
+import java.util.UUID;
 
+@DatabaseTable(tableName = "token")
+public class Token implements Serializable {
 
-    public Token(Long expiresIn, String tokenType, String refreshToken, String accessToken) {
-        this.expiresIn = expiresIn;
-        this.tokenType = tokenType;
-        this.refreshToken = refreshToken;
-        this.accessToken = accessToken;
-        this.expiresAt = (expiresIn * 1000) + System.currentTimeMillis();
+    @DatabaseField(generatedId = true)
+    private int mTokenId;
+    @DatabaseField
+    @SerializedName("ACCES_TOKEN")
+    private String mAccessToken;
+    @DatabaseField
+    @SerializedName("EXPIRES_IN")
+    private long mExpiresIn;
+    @DatabaseField
+    @SerializedName("EXPIRES_AT")
+    private long mExpiresAt;
+    @DatabaseField
+    @SerializedName("TOKEN_TYP")
+    private String mTokenType;
+    @DatabaseField
+    @SerializedName("REFRESH_TOKEN")
+    private String mRefreshToken;
+
+    public Token() {
+    }
+
+    public Token(String mAccessToken, Long mExpiresIn, String mTokenType, String mRefreshToken) {
+        this.mAccessToken = mAccessToken;
+        this.mExpiresIn = mExpiresIn;
+        this.mExpiresAt = (mExpiresIn * 1000) + System.currentTimeMillis();
+        this.mTokenType = mTokenType;
+        this.mRefreshToken = mRefreshToken;
+    }
+
+    public String getmAccessToken() {
+        return mAccessToken;
+    }
+
+    public long getmExpiresIn() {
+        return mExpiresIn;
+    }
+
+    public long getmExpiresAt() {
+        return mExpiresAt;
+    }
+
+    public String getmTokenType() {
+        return mTokenType;
+    }
+
+    public String getmRefreshToken() {
+        return mRefreshToken;
     }
 
 
-    public Long getExpiresIn() {
-        return expiresIn;
-    }
-
-    public Long getExpiresAt() {
-        return expiresAt;
-    }
-
-    public String getTokenType() {
-        return tokenType;
-    }
-
-
-    public String getRefreshToken() {
-        return refreshToken;
-    }
-
-
-    public String getAccessToken() {
-        return accessToken;
-    }
-
-    public boolean isExpired() {
-        return (System.currentTimeMillis() >= this.getExpiresAt()) ? true : false;
-    }
-
-    //Todo zmienić do uzytku w kontrolerze
-//    public String getResource(OAuth2Client client, Token token, String path) {
-//        return OAuthUtils.getProtectedResource(client, token, path);
-//    }
-//
-//    public Token refresh(OAuth2Client client) {
-//        OAuth2Config oauthConfig = new OAuth2Config.OAuth2ConfigBuilder(client.getUsername(), client.getPassword(), client.getClientId(), client.getClientSecret(), client.getSite())
-//                .grantType("refresh_token").build();
-//        return OAuthUtils.refreshAccessToken(this, oauthConfig);
-//    }
-
-
-    @Override
-    public String toString() {
-        return "Token{" +
-                "expiresIn=" + expiresIn +
-                ", expiresAt=" + expiresAt +
-                ", tokenType='" + tokenType + '\'' +
-                ", refreshToken='" + refreshToken + '\'' +
-                ", accessToken='" + accessToken + '\'' +
-                '}';
-    }
 }
