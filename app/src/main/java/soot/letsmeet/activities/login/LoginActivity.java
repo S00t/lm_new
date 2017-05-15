@@ -18,7 +18,7 @@ import soot.letsmeet.LetsMeetApplication;
 import soot.letsmeet.R;
 import soot.letsmeet.activities.login.controllers.LoginController;
 import soot.letsmeet.activities.login.interfaces.LoginInterface;
-import soot.letsmeet.activities.register.RegisterActivity;
+//import soot.letsmeet.activities.register.RegisterActivity;
 import soot.letsmeet.databinding.ActivityLoginBinding;
 import soot.letsmeet.di.ContextScope.ConnectivityModule;
 import timber.log.Timber;
@@ -31,7 +31,9 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface {
     protected LoginController mController;
 
     private ActivityLoginBinding mLoginBinding;
-    private @PreloadViewState int mViewState;
+    private
+    @PreloadViewState
+    int mViewState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +44,6 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface {
         ((LetsMeetApplication) getApplication()).mApplicationComponent
                 .newContextComponent(new ConnectivityModule(this))
                 .inject(this);
-
-
 
 
     }
@@ -77,8 +77,9 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface {
     public void onChangePassError(@StringRes int message) {
 
     }
+
     @NeedsPermission({Manifest.permission.READ_PHONE_STATE, Manifest.permission.WRITE_EXTERNAL_STORAGE})
-    protected void initApplicationPermissions(){
+    protected void initApplicationPermissions() {
         Timber.i("Ekran logowania");
 
     }
@@ -88,18 +89,27 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface {
 //        mLoginBinding.passwordInput.setEnabled(false);
 //        mLoginBinding.loginButtonLogin.setEnabled(false);
 
-
-        if ((mController.isNetworkAvaible()) && mViewState != STATE_CHANGE_PASSWD) {
+        if ((mLoginBinding.loginInput.getText() == null || mLoginBinding.loginInput.getText().toString().isEmpty())&& (mLoginBinding.passwordInput.getText() == null || mLoginBinding.passwordInput.getText().toString().isEmpty())) {
+            mLoginBinding.loginInput.setError(this.getResources().getString(R.string.login_empty));
+            mLoginBinding.passwordInput.setError(this.getResources().getString(R.string.password_empty));
+            showToast( this.getResources().getString(R.string.login_password_empty));
+        } else if(mLoginBinding.loginInput.getText() == null || mLoginBinding.loginInput.getText().toString().isEmpty()) {
+            mLoginBinding.loginInput.setError(this.getResources().getString(R.string.login_empty));
+            showToast( this.getResources().getString(R.string.login_password_empty));
+        } else if (mLoginBinding.passwordInput.getText() == null || mLoginBinding.passwordInput.getText().toString().isEmpty()) {
+            mLoginBinding.passwordInput.setError(this.getResources().getString(R.string.password_empty));
+            showToast( this.getResources().getString(R.string.login_password_empty));
+        }  else if ((mController.isNetworkAvaible())) {
             mController.login(mLoginBinding.loginInput.getText() != null ? mLoginBinding.loginInput.getText().toString().trim() : null, mLoginBinding.passwordInput.getText().toString());
         }
     }
 
-    public void registerClick(View v){
-        Intent intent = new Intent(this, RegisterActivity.class);
-        startActivity(intent);
+    public void registerClick(View v) {
+//        Intent intent = new Intent(this, RegisterActivity.class);
+//        startActivity(intent);
     }
 
-    public void showToast(String message){
+    public void showToast(String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
 }
