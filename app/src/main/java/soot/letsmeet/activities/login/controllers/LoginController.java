@@ -84,7 +84,7 @@ public class LoginController extends BaseController<LoginInterface> {
                     if(throwable instanceof HttpException) {
                         HttpException exception = (HttpException) throwable;
                         switch (exception.code()) {
-                            case 500:
+                            case 401:
 
                                 break;
                         }
