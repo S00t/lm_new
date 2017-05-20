@@ -10,8 +10,10 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import soot.letsmeet.sqlite.DatabaseHelper;
+import soot.letsmeet.sqlite.impl.AccountSQLImpl;
 import soot.letsmeet.sqlite.impl.LoggerSQLImpl;
 import soot.letsmeet.sqlite.impl.TokenSQLImpl;
+import soot.letsmeet.sqlite.repository.AccountRepository;
 import soot.letsmeet.sqlite.repository.LoggerRepository;
 import soot.letsmeet.sqlite.repository.TokenRepository;
 
@@ -28,6 +30,12 @@ public class RepositoryModule {
     TokenRepository providesTokenRepository(ConnectionSource connectionSource) {
         return new TokenSQLImpl(connectionSource);
 
+    }
+
+    @Provides
+    @Singleton
+    AccountRepository providesAccountRepository(ConnectionSource connectionSource){
+        return new AccountSQLImpl(connectionSource);
     }
 
 //    @Provides

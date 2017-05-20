@@ -18,7 +18,9 @@ import soot.letsmeet.models.Token;
 import soot.letsmeet.sqlite.repository.LoggerRepository;
 import soot.letsmeet.sqlite.repository.TokenRepository;
 import soot.letsmeet.utils.ConnectivityUtil;
+import soot.letsmeet.utils.LoginUtils;
 import soot.letsmeet.utils.TokenUtil;
+import soot.letsmeet.webservices.LoginWebServices;
 import soot.letsmeet.webservices.OAuthWebServices;
 import soot.letsmeet.webservices.responses.TokenResponse;
 import timber.log.Timber;
@@ -35,6 +37,8 @@ public class LoginController extends BaseController<LoginInterface> {
     protected LoggerRepository mLoggerRepository;
     @Inject
     protected OAuthWebServices mOAuthWebServices;
+    @Inject
+    protected LoginWebServices mLoginWebServices;
     @Inject
     protected TokenRepository mTokenRepository;
 
@@ -76,7 +80,19 @@ public class LoginController extends BaseController<LoginInterface> {
     }
 
 
-    public void login(String login, String password) {
+    public void login(@Nullable String login,@Nullable String password) {
+
+        Timber.v( "login in progres");
+//        checkUserBlocokade();
+        if (login == null || password == null || login.isEmpty() || password.isEmpty()) {
+            Timber.i("puste pola");
+            boolean noLogin = login == null || login.isEmpty();
+            boolean noPasswd = password == null || password.isEmpty();
+            if (noLogin) Timber.v( "Login is missing");
+            if (noPasswd) Timber.v( "Password is missing");
+            if (isViewPresent()) getView().onLoginError();
+            return;
+        }
         OAuth2Config mOAuth2Config = new OAuth2Config.OAuth2ConfigBuilder(login, password, BuildConfig.c_id, BuildConfig.ss).grantType("password").build();
         mOAuthWebServices.getAccessToken(TokenUtil.buildTokenRequest(mOAuth2Config))
                 .subscribeOn(Schedulers.newThread())
@@ -85,7 +101,8 @@ public class LoginController extends BaseController<LoginInterface> {
                         HttpException exception = (HttpException) throwable;
                         switch (exception.code()) {
                             case 401:
-
+                                Timber.e("Blad 401 " + exception.message() + " login: "+ login + " password: " + password);
+                                loginError();
                                 break;
                         }
                     }
@@ -93,10 +110,40 @@ public class LoginController extends BaseController<LoginInterface> {
                 }).observeOn(AndroidSchedulers.mainThread()).
                 subscribe(tokenResponse -> {
                     storeToken(tokenResponse);
+                    getAccount();
         }, throwable -> {
                     Timber.e(throwable);
                     loginError();
                 });
+    }
+
+    private void getAccount() {
+
+        Token mAccessToken = mTokenRepository.findToken();
+        mLoginWebServices.login(LoginUtils.getAuthorizationHeaderForAccessToken(mAccessToken.getmAccessToken()))
+                .subscribeOn(Schedulers.newThread())
+                .onErrorResumeNext(throwable -> {
+                    if(throwable instanceof HttpException) {
+                        HttpException exception = (HttpException) throwable;
+                        Timber.e("Blad logowania!! " + exception.message());
+                        switch (exception.code()) {
+                            case 401:
+                                Timber.e("Blad 401 " + exception.message() + " login: "+ login + " password: " + password);
+                                loginError();
+                                break;
+                        }
+                    }
+                    return Observable.empty();
+                }).observeOn(AndroidSchedulers.mainThread()).
+                subscribe(accountResponse -> {
+                   Timber.i("POPRAWNY EMAIL" + " "+ accountResponse.getEmail());
+                    //onLoginSuccess();
+                }, throwable -> {
+                    Timber.e(throwable);
+                    loginError();
+                });
+
+
     }
 
     private void loginError() {

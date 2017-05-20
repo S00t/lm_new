@@ -3,6 +3,7 @@ package soot.letsmeet.di.ContextScope;
 
 import dagger.Subcomponent;
 import soot.letsmeet.activities.login.LoginActivity;
+import soot.letsmeet.activities.register.RegisterActivity;
 import soot.letsmeet.di.ContextScope.CameraScope.CameraComponent;
 import soot.letsmeet.di.ContextScope.CameraScope.CameraModule;
 import soot.letsmeet.di.ContextScope.FileServiceScope.FileModule;
@@ -13,12 +14,9 @@ import soot.letsmeet.di.ContextScope.FileServiceScope.NotificationModule;
 @Subcomponent(modules = {ConnectivityModule.class})
 public interface ContextComponent {
 
-
     void inject(LoginActivity loginActivity);
 
-//    void inject(OrganizerListDetailsFragment organizerListDetailsFragment);
-
-//    void inject(SynchronizationService synchronizationService);
+    void inject(RegisterActivity registerActivity);
 
     FileServiceComponent newFileServiceComponent(FileModule fileModule, NotificationModule notificationModule);
 

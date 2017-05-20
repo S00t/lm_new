@@ -1,13 +1,31 @@
 package soot.letsmeet.activities.register.controller;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import android.os.HandlerThread;
+
+import javax.inject.Inject;
+
+import soot.letsmeet.activities.BaseController;
+import soot.letsmeet.activities.register.interfaces.RegisterInterface;
 
 /**
  * Created by Soot on 13/05/2017.
  */
 
-public class RegisterController {
+public class RegisterController extends BaseController<RegisterInterface> {
+    private HandlerThread mHandlerThread;
+
+    @Inject
+    public RegisterController(){
+        super();
+        mHandlerThread = new HandlerThread("RegistrationProcessing");
+        mHandlerThread.start();
+    }
+
+    @Override
+    public void onCreate(RegisterInterface mView) {
+        super.onCreate(mView);
+
+    }
 
     public void registerClick(String mName, String mSurname, String mPassword, String mRepeatedPassword){
 

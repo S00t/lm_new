@@ -20,6 +20,24 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/RegisterLabel"
+                    android:text="@string/register_label"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    fontPath="fonts/Dosis-Regular.otf"
+                    />
+
+                <soot.letsmeet.customviews.DashedDivider
+                    android:id="@+id/TopDivider"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/FragmentAccountDividerHeight"
+                    android:layout_marginBottom="@dimen/FragmentRegisterButtonMarginBottom"
+                    android:layout_marginTop="@dimen/FragmentRegisterButtonMarginTop"
+                    android:src="@drawable/shape_line_dashed" />
+
+
                 <soot.letsmeet.customviews.CustomTextImputLayout
                     android:id="@+id/fragmentRegisterName"
                     android:hint="@string/name"

@@ -43,34 +43,6 @@ repositories {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    //EventBus 3.0
-    //Ormlite-baza danych
-    //Java 8 Stream
-    //Joda Time
-    //Szyfrowanie
-    //Permissions
-    // RecyclerView & AdvancedRecyclerView
-    compile('com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:0.10.0@aar') {
-        transitive = true
-    }
-    // OSM
-    //!!!NIE zmieniać wersji!!! Zmiana wersji wiąże się z werfikacją zoomu - konieczne testy
-    // RX JAVA
-    // Retrofit + OkHttp
-    // Dagger
-    //Stetho (only on Tests)
-
-
-    compile('com.github.tony19:logback-android-classic:1.1.1-6') {
-        // workaround issue #73
-        exclude group: 'com.google.android', module: 'android'
-    }
-
-    //Calligraphy
-
-    compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
-        transitive = true;
-    }
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.android.support:appcompat-v7:25.2.0'
     compile 'com.android.support:design:25.2.0'
@@ -101,4 +73,17 @@ dependencies {
     androidTestCompile 'junit:junit:4.12'
     annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:2.2.0'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.7'
+
+    compile('com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:0.10.0@aar') {
+        transitive = true
+    }
+
+    compile('com.github.tony19:logback-android-classic:1.1.1-6') {
+        exclude group: 'com.google.android', module: 'android'
+    }
+
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
+        transitive = true;
+    }
+
 }

@@ -16,6 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 import soot.letsmeet.BuildConfig;
 import soot.letsmeet.webservices.DomainWebService;
+import soot.letsmeet.webservices.LoginWebServices;
 import soot.letsmeet.webservices.OAuthWebServices;
 
 @Module
@@ -59,11 +60,11 @@ public class NetworkModule {
         return retrofit.create(OAuthWebServices.class);
     }
 
-//    @Provides
-//    @Singleton
-//    LoginWebService providesLoginWebService(Retrofit retrofit) {
-//        return retrofit.create(LoginWebService.class);
-//    }
+    @Provides
+    @Singleton
+    LoginWebServices providesLoginWebService(Retrofit retrofit) {
+        return retrofit.create(LoginWebServices.class);
+    }
 //
 //
 //

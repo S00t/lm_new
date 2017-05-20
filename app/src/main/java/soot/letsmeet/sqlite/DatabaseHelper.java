@@ -51,6 +51,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         Log.i(DatabaseHelper.class.getName(), "onUpgrade");
         try {
             TableUtils.dropTable(connectionSource, Account.class, true);
+            TableUtils.dropTable(connectionSource, Token.class, true);
 
         } catch (java.sql.SQLException e) {
             e.printStackTrace();

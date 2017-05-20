@@ -7,6 +7,8 @@ import android.support.annotation.StringRes;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
+import soot.letsmeet.customviews.ProgressCustomView;
+
 /**
  * Created by Soot on 02/05/2017.
  */
@@ -18,14 +20,17 @@ public interface LoginInterface {
     @IntDef({STATE_LOGIN, STATE_CHANGE_PASSWD, STATE_ACCOUNT_EXPIRED, STATE_PASSWORD_EXPIRED})
     @interface PreloadViewState {
     }
-    void setViewState(@PreloadViewState int viewState);
 
-    void onLoginSuccess(boolean firstLogging);
-    void onLoginError(int faildLoginCount,@Nullable String message);
+
+    void onLoginSuccess();
+    void onLoginError();
 
     void onNoAccountOffline();
 
     void onUserAccountBlocked();
     void onChangePassError(@StringRes int message);
+
+    void setProgresViewState(@ProgressCustomView.ProgressInterface.ProgresViewState int viewState, @Nullable String title, @Nullable Boolean mShowBlur);
+
     void showToast(String message);
 }

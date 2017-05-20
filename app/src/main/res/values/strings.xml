@@ -19,4 +19,8 @@
     <string name="login_password_empty">Pola login i hasło nie mogą być puste</string>
     <string name="password_empty">Błędne hasło</string>
     <string name="login_empty">Błędny login</string>
+    <string name="register_label">Rejestracja</string>
+    <string name="permission_error">Bez przydzielonych uprawnień nie jest możliwe skorzystanie z tej funkcjonalności</string>
+    <string name="permission_error_never_ask">Aby ponownie ustawić pozwolenie wejdź do Ustawień         urządzenia i zezwól aplikacji LetsMeet na dostęp do Pamięci</string>
+    <string name="error_logging">Login lub hasło niepoprawne! Wpisz poprawne dane i spróbuj ponownie</string>
 </resources>
