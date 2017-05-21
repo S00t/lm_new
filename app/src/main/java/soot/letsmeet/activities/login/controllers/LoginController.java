@@ -13,15 +13,20 @@ import rx.schedulers.Schedulers;
 import soot.letsmeet.BuildConfig;
 import soot.letsmeet.activities.BaseController;
 import soot.letsmeet.activities.login.interfaces.LoginInterface;
+import soot.letsmeet.customviews.ProgressCustomView;
+import soot.letsmeet.models.Account;
 import soot.letsmeet.models.OAuth2Config;
 import soot.letsmeet.models.Token;
+import soot.letsmeet.sqlite.repository.AccountRepository;
 import soot.letsmeet.sqlite.repository.LoggerRepository;
 import soot.letsmeet.sqlite.repository.TokenRepository;
 import soot.letsmeet.utils.ConnectivityUtil;
 import soot.letsmeet.utils.LoginUtils;
+import soot.letsmeet.utils.TimeUtil;
 import soot.letsmeet.utils.TokenUtil;
 import soot.letsmeet.webservices.LoginWebServices;
 import soot.letsmeet.webservices.OAuthWebServices;
+import soot.letsmeet.webservices.responses.AccountResponse;
 import soot.letsmeet.webservices.responses.TokenResponse;
 import timber.log.Timber;
 
@@ -41,9 +46,12 @@ public class LoginController extends BaseController<LoginInterface> {
     protected LoginWebServices mLoginWebServices;
     @Inject
     protected TokenRepository mTokenRepository;
+    @Inject
+    protected AccountRepository mAccountRepository;
 
     private HandlerThread mHandlerThread;
     private Token mToken;
+    private Account mAccount;
     @Inject
     public LoginController() {
         super();
@@ -90,7 +98,9 @@ public class LoginController extends BaseController<LoginInterface> {
             boolean noPasswd = password == null || password.isEmpty();
             if (noLogin) Timber.v( "Login is missing");
             if (noPasswd) Timber.v( "Password is missing");
-            if (isViewPresent()) getView().onLoginError();
+            if (isViewPresent()){
+                getView().setProgresViewState(ProgressCustomView.ProgressInterface.STATE_NORMAL,null,null);
+                getView().onLoginError();}
             return;
         }
         OAuth2Config mOAuth2Config = new OAuth2Config.OAuth2ConfigBuilder(login, password, BuildConfig.c_id, BuildConfig.ss).grantType("password").build();
@@ -102,7 +112,10 @@ public class LoginController extends BaseController<LoginInterface> {
                         switch (exception.code()) {
                             case 401:
                                 Timber.e("Blad 401 " + exception.message() + " login: "+ login + " password: " + password);
-                                loginError();
+                                if(isViewPresent()) {
+                                    getView().setProgresViewState(ProgressCustomView.ProgressInterface.STATE_NORMAL, null, null);
+                                    getView().onLoginError();
+                                }
                                 break;
                         }
                     }
@@ -113,47 +126,61 @@ public class LoginController extends BaseController<LoginInterface> {
                     getAccount();
         }, throwable -> {
                     Timber.e(throwable);
-                    loginError();
+                    if(isViewPresent()) {
+                        getView().setProgresViewState(ProgressCustomView.ProgressInterface.STATE_NORMAL, null, null);
+                        getView().onLoginError();
+                    }
                 });
     }
 
     private void getAccount() {
 
         Token mAccessToken = mTokenRepository.findToken();
-        mLoginWebServices.login(LoginUtils.getAuthorizationHeaderForAccessToken(mAccessToken.getmAccessToken()))
-                .subscribeOn(Schedulers.newThread())
-                .onErrorResumeNext(throwable -> {
-                    if(throwable instanceof HttpException) {
-                        HttpException exception = (HttpException) throwable;
-                        Timber.e("Blad logowania!! " + exception.message());
-                        switch (exception.code()) {
-                            case 401:
-                                Timber.e("Blad 401 " + exception.message() + " login: "+ login + " password: " + password);
-                                loginError();
-                                break;
+        if(mAccessToken.getmExpiresAt() >= TimeUtil.getLocalMillis()) {
+            mLoginWebServices.login(LoginUtils.getAuthorizationHeaderForAccessToken(mAccessToken.getmAccessToken()))
+                    .subscribeOn(Schedulers.newThread())
+                    .onErrorResumeNext(throwable -> {
+                        if (throwable instanceof HttpException) {
+                            HttpException exception = (HttpException) throwable;
+                            Timber.e("Blad logowania!! " + exception.message());
+                            switch (exception.code()) {
+                                case 401:
+                                    Timber.e("Blad 401 " + exception.message());
+                                    if (isViewPresent()) {
+                                        getView().setProgresViewState(ProgressCustomView.ProgressInterface.STATE_NORMAL, null, null);
+                                        getView().onLoginError();
+                                    }
+                                    break;
+                            }
                         }
-                    }
-                    return Observable.empty();
-                }).observeOn(AndroidSchedulers.mainThread()).
-                subscribe(accountResponse -> {
-                   Timber.i("POPRAWNY EMAIL" + " "+ accountResponse.getEmail());
-                    //onLoginSuccess();
-                }, throwable -> {
-                    Timber.e(throwable);
-                    loginError();
-                });
+                        return Observable.empty();
+                    }).observeOn(AndroidSchedulers.mainThread()).
+                    subscribe(accountResponse -> {
+                        Timber.i("POPRAWNY EMAIL" + " " + accountResponse.getEmail());
+                        storeAccount(accountResponse);
+                        boolean isView = isViewPresent();
+                        if (isView){
+                            getView().setProgresViewState(ProgressCustomView.ProgressInterface.STATE_NORMAL, null, null);
+                            getView().onLoginSuccess();
+                        }else{
+                            Timber.e("WWTTFF");
+                        }
+                    }, throwable -> {
+                        Timber.e(throwable);
+                        if (isViewPresent()){
+                            if(isViewPresent()) {
+                                getView().setProgresViewState(ProgressCustomView.ProgressInterface.STATE_NORMAL, null, null);
+                                getView().onLoginError();
+                            }
+                        }
 
+                    });
+        }else {
 
-    }
-
-    private void loginError() {
-        Timber.e("Błąd logowania");
-        if (isViewPresent()){
-            getView().showToast("Błąd logowania, spróbuj jeszcze raz");
-        } else{
-            Timber.e("Błąd logowania, w dodatku coś jebło");
         }
+
     }
+
 
     private void storeToken(TokenResponse mTokenResponse){
 
@@ -174,5 +201,34 @@ public class LoginController extends BaseController<LoginInterface> {
         }
 
     }
+
+    private void storeAccount(AccountResponse mAccountResponse){
+        if(mAccountResponse != null && mAccountResponse.getEmail()!=null && !mAccountResponse.getEmail().isEmpty()){
+            mAccount = new Account(mAccountResponse.getEmail(),
+                    mAccountResponse.getNickName(),
+                    mAccountResponse.getFullName(),
+                    mAccountResponse.getPhoneNumber(),
+                    mAccountResponse.getShowName(),
+                    mAccountResponse.getGravatarUrl());
+            boolean createOrUpdateSucess = mAccountRepository.createOrUpdate(mAccount);
+
+            if (!createOrUpdateSucess) {
+                Timber.e("Error creating or updating account in databse");
+            }else {
+                Timber.i("Account stored " + mAccount.toString());
+
+            }
+            //w tym miejscu użytkownik powinien być widoczny w bazie
+            if (mTokenRepository.findToken() == null) {
+                Timber.e("No account found after succesful login and tries to save in database");
+            }
+        } else {
+            Timber.e("AccountResponse null or something bad happen");
+
+        }
+
+    }
+
+
 }
 

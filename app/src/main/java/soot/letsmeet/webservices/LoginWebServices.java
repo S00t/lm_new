@@ -1,7 +1,7 @@
 package soot.letsmeet.webservices;
 
+import retrofit2.http.GET;
 import retrofit2.http.Header;
-import retrofit2.http.POST;
 import rx.Observable;
 import soot.letsmeet.webservices.requests.OAuthConstants;
 import soot.letsmeet.webservices.responses.AccountResponse;
@@ -12,7 +12,6 @@ import soot.letsmeet.webservices.responses.AccountResponse;
 
 public interface LoginWebServices {
 
-    @POST("/api/users/")
+    @GET("/api/users/")
     Observable<AccountResponse> login(@Header(OAuthConstants.AUTHORIZATION) String AccestToken);
-
 }

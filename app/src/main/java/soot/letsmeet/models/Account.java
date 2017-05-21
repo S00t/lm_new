@@ -13,7 +13,7 @@ import java.io.Serializable;
  * Created by Soot on 03/05/2017.
  */
 @DatabaseTable(tableName = "account")
-public class Account extends BaseJsonModel implements Serializable {
+public class Account implements Serializable {
 
     @DatabaseField(id = true)
     @SerializedName("email")

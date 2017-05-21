@@ -2,15 +2,14 @@ package soot.letsmeet.activities.login;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +43,7 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface, 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         mLoginBinding = DataBindingUtil.setContentView(this, R.layout.activity_login);
 
 
@@ -51,35 +51,31 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface, 
                 .newContextComponent(new ConnectivityModule(this))
                 .inject(this);
 
+        mController.onCreate(this);
         LoginActivityPermissionsDispatcher.initApplicationPermissionsWithCheck(this);
 
         mLoginBinding.loginProgress.setProgressInterface(this);
         setProgresViewState(STATE_NORMAL, null, null);
 
-        if (mLoginBinding.loginInput.getText() != null) mLoginBinding.loginInput.setOnEditorActionListener((TextView v, int actionId, KeyEvent event) -> {
-            if (actionId == EditorInfo.IME_ACTION_DONE) {
+        if (mLoginBinding.loginInput != null) mLoginBinding.loginInput.setOnEditorActionListener((TextView v, int actionId, KeyEvent event) -> {
+
                 ViewUtils.hideKeyboard(this, v);
                 loginClick(v);
                 return true;
-            }
-            return false;
         });
-
-
     }
-
 
     @Override
     public void onLoginSuccess() {
         Toast.makeText(this, "Logowanie poprawne", Toast.LENGTH_SHORT).show();
-        setProgresViewState(STATE_NORMAL, null, null);
+        setProgresViewState(STATE_NORMAL, null, true);
 //        Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
-//        startActivity(intent);
-        finish();
+//        startActivity(intent)
     }
 
     @Override
     public void onLoginError() {
+        setProgresViewState(STATE_NORMAL, null, null);
         Toast.makeText(this, R.string.error_logging, Toast.LENGTH_SHORT).show();
     }
 
@@ -88,15 +84,6 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface, 
 
     }
 
-    @Override
-    public void onUserAccountBlocked() {
-
-    }
-
-    @Override
-    public void onChangePassError(@StringRes int message) {
-
-    }
 
     @Override
     public void setProgresViewState(@ProgresViewState int viewState, @Nullable String title, @Nullable Boolean mShowBlur) {
@@ -106,15 +93,20 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface, 
     }
 
     public void loginClick(View v) {
+
+        setProgresViewState(STATE_LOADING, "Logowanie...", true);
         if ((mLoginBinding.loginInput.getText() == null || mLoginBinding.loginInput.getText().toString().isEmpty())&& (mLoginBinding.passwordInput.getText() == null || mLoginBinding.passwordInput.getText().toString().isEmpty())) {
             mLoginBinding.loginInput.setError(this.getResources().getString(R.string.login_empty));
             mLoginBinding.passwordInput.setError(this.getResources().getString(R.string.password_empty));
+            setProgresViewState(STATE_NORMAL, null, null);
             showToast( this.getResources().getString(R.string.login_password_empty));
         } else if(mLoginBinding.loginInput.getText() == null || mLoginBinding.loginInput.getText().toString().isEmpty()) {
             mLoginBinding.loginInput.setError(this.getResources().getString(R.string.login_empty));
+            setProgresViewState(STATE_NORMAL, null, null);
             showToast( this.getResources().getString(R.string.login_password_empty));
         } else if (mLoginBinding.passwordInput.getText() == null || mLoginBinding.passwordInput.getText().toString().isEmpty()) {
             mLoginBinding.passwordInput.setError(this.getResources().getString(R.string.password_empty));
+            setProgresViewState(STATE_NORMAL, null, null);
             showToast( this.getResources().getString(R.string.login_password_empty));
         }  else if ((mController.isNetworkAvaible())) {
             mController.login(mLoginBinding.loginInput.getText() != null ? mLoginBinding.loginInput.getText().toString().trim() : null, mLoginBinding.passwordInput.getText().toString());

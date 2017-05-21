@@ -4,10 +4,8 @@ import java.util.Map;
 
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.Header;
 import retrofit2.http.POST;
 import rx.Observable;
-import soot.letsmeet.webservices.requests.OAuthConstants;
 import soot.letsmeet.webservices.responses.TokenResponse;
 
 /**
@@ -19,4 +17,9 @@ public interface OAuthWebServices {
         @FormUrlEncoded
         @POST("oauth/token/")
         Observable<TokenResponse> getAccessToken(@FieldMap(encoded = true) Map<String, String> fields);
+
+        @FormUrlEncoded
+        @POST("oauth/token/")
+        Observable<TokenResponse> refresAccessToken(@FieldMap(encoded = true) Map<String, String> fields);
+
 }
