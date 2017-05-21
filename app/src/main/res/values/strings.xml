@@ -17,10 +17,20 @@
     <string name="repeat_password">Powtórz hasło</string>
     <string name="register">Zarejestruj</string>
     <string name="login_password_empty">Pola login i hasło nie mogą być puste</string>
+    <string name="all_fields_mandatory">Wszystkie pola w formularzu są obowiązkowe</string>
     <string name="password_empty">Błędne hasło</string>
     <string name="login_empty">Błędny login</string>
+    <string name="empty_field">Puste pole</string>
+    <string name="paswords_not_matching">Wprowadzone hasła różnią się od siebie</string>
     <string name="register_label">Rejestracja</string>
     <string name="permission_error">Bez przydzielonych uprawnień nie jest możliwe skorzystanie z tej funkcjonalności</string>
     <string name="permission_error_never_ask">Aby ponownie ustawić pozwolenie wejdź do Ustawień         urządzenia i zezwól aplikacji LetsMeet na dostęp do Pamięci</string>
     <string name="error_logging">Login lub hasło niepoprawne! Wpisz poprawne dane i spróbuj ponownie</string>
+    <string name="error_register">Sprawdź ponownie wszystkie pola i spróbuj jeszcze raz</string>
+    <string name="errorPassReq">Hasło nie spełnia wymogów bezpieczeństwa:\n-minimum 6 znaków\n-małe
+        i duże litery\n-znaki specjalne lub cyfry.
+    </string>
+
+
+
 </resources>

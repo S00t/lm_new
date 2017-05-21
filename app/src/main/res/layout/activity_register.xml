@@ -39,42 +39,42 @@
 
 
                 <soot.letsmeet.customviews.CustomTextImputLayout
-                    android:id="@+id/fragmentRegisterName"
+                    android:id="@+id/RegisterName"
                     android:hint="@string/name"
                     style="@style/CustomEditTextInput"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/EditTextButtonHeight" />
 
                 <soot.letsmeet.customviews.CustomTextImputLayout
-                    android:id="@+id/fragmentRegisterSurname"
+                    android:id="@+id/RegisterSurname"
                     android:hint="@string/surname"
                     style="@style/CustomEditTextInput"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/EditTextButtonHeight" />
 
                 <soot.letsmeet.customviews.CustomTextImputLayout
-                    android:id="@+id/fragmentRegisterMail"
+                    android:id="@+id/RegisterMail"
                     android:hint="@string/email"
                     style="@style/CustomEditTextMailInput"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/EditTextButtonHeight" />
 
                 <soot.letsmeet.customviews.CustomTextImputLayout
-                    android:id="@+id/fragmentRegisterPassword"
+                    android:id="@+id/RegisterPassword"
                     android:hint="@string/password_hint"
                     style="@style/CustomEditTextPasswordInput"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/EditTextButtonHeight" />
 
                 <soot.letsmeet.customviews.CustomTextImputLayout
-                    android:id="@+id/fragmentRegisterRepeatPassword"
+                    android:id="@+id/RegisterRepeatPassword"
                     android:hint="@string/repeat_password"
                     style="@style/CustomEditTextPasswordInput"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/EditTextButtonHeight" />
 
                 <soot.letsmeet.customviews.DashedDivider
-                    android:id="@+id/fragmentAccountDividerMiddle"
+                    android:id="@+id/DividerMiddle"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/FragmentAccountDividerHeight"
                     android:layout_marginBottom="@dimen/FragmentRegisterButtonMarginBottom"
@@ -82,7 +82,7 @@
                     android:src="@drawable/shape_line_dashed" />
 
                 <Button
-                    android:id="@+id/fragmentRegisterButtonRegister"
+                    android:id="@+id/RegisterButtonRegister"
                     style="@style/LetsMeetButton"
                     android:text="@string/register"
                     android:layout_width="match_parent"
@@ -90,5 +90,9 @@
                     android:layout_height="@dimen/EditTextButtonHeight" />
             </LinearLayout>
         </ScrollView>
+        <soot.letsmeet.customviews.ProgressCustomView
+            android:id="@+id/register_progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
     </LinearLayout>
 </layout>

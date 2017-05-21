@@ -32,13 +32,15 @@ import timber.log.Timber;
 
 
 @RuntimePermissions
-public class LoginActivity extends AppCompatActivity implements LoginInterface, ProgressCustomView.ProgressInterface  {
+public class LoginActivity extends AppCompatActivity implements LoginInterface, ProgressCustomView.ProgressInterface {
 
     @Inject
     protected LoginController mController;
 
     private ActivityLoginBinding mLoginBinding;
-    private @PreloadViewState int mViewState;
+    private
+    @PreloadViewState
+    int mViewState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,12 +59,13 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface, 
         mLoginBinding.loginProgress.setProgressInterface(this);
         setProgresViewState(STATE_NORMAL, null, null);
 
-        if (mLoginBinding.loginInput != null) mLoginBinding.loginInput.setOnEditorActionListener((TextView v, int actionId, KeyEvent event) -> {
+        if (mLoginBinding.loginInput != null)
+            mLoginBinding.loginInput.setOnEditorActionListener((TextView v, int actionId, KeyEvent event) -> {
 
                 ViewUtils.hideKeyboard(this, v);
                 loginClick(v);
                 return true;
-        });
+            });
     }
 
     @Override
@@ -95,20 +98,21 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface, 
     public void loginClick(View v) {
 
         setProgresViewState(STATE_LOADING, "Logowanie...", true);
-        if ((mLoginBinding.loginInput.getText() == null || mLoginBinding.loginInput.getText().toString().isEmpty())&& (mLoginBinding.passwordInput.getText() == null || mLoginBinding.passwordInput.getText().toString().isEmpty())) {
+        if ((mLoginBinding.loginInput.getText() == null || mLoginBinding.loginInput.getText().toString().isEmpty()) &&
+                (mLoginBinding.passwordInput.getText() == null || mLoginBinding.passwordInput.getText().toString().isEmpty())) {
             mLoginBinding.loginInput.setError(this.getResources().getString(R.string.login_empty));
             mLoginBinding.passwordInput.setError(this.getResources().getString(R.string.password_empty));
             setProgresViewState(STATE_NORMAL, null, null);
-            showToast( this.getResources().getString(R.string.login_password_empty));
-        } else if(mLoginBinding.loginInput.getText() == null || mLoginBinding.loginInput.getText().toString().isEmpty()) {
+            showToast(this.getResources().getString(R.string.login_password_empty));
+        } else if (mLoginBinding.loginInput.getText() == null || mLoginBinding.loginInput.getText().toString().isEmpty()) {
             mLoginBinding.loginInput.setError(this.getResources().getString(R.string.login_empty));
             setProgresViewState(STATE_NORMAL, null, null);
-            showToast( this.getResources().getString(R.string.login_password_empty));
+            showToast(this.getResources().getString(R.string.login_password_empty));
         } else if (mLoginBinding.passwordInput.getText() == null || mLoginBinding.passwordInput.getText().toString().isEmpty()) {
             mLoginBinding.passwordInput.setError(this.getResources().getString(R.string.password_empty));
             setProgresViewState(STATE_NORMAL, null, null);
-            showToast( this.getResources().getString(R.string.login_password_empty));
-        }  else if ((mController.isNetworkAvaible())) {
+            showToast(this.getResources().getString(R.string.login_password_empty));
+        } else if ((mController.isNetworkAvaible())) {
             mController.login(mLoginBinding.loginInput.getText() != null ? mLoginBinding.loginInput.getText().toString().trim() : null, mLoginBinding.passwordInput.getText().toString());
         }
     }
@@ -124,7 +128,7 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface, 
 
 
     @NeedsPermission({Manifest.permission.READ_PHONE_STATE, Manifest.permission.WRITE_EXTERNAL_STORAGE})
-    protected void initApplicationPermissions(){
+    protected void initApplicationPermissions() {
         Timber.i("Ekran logowania");
     }
 

@@ -23,10 +23,10 @@ import soot.letsmeet.databinding.ProgressBinding;
 
 public class ProgressCustomView extends FrameLayout {
     public interface ProgressInterface {
-        int STATE_NORMAL = 1, STATE_LOADING = 2;
+        int STATE_NORMAL = 1, STATE_LOADING = 2, STATE_REGISTER = 3;
 
         @Retention(RetentionPolicy.SOURCE)
-        @IntDef({STATE_NORMAL, STATE_LOADING})
+        @IntDef({STATE_NORMAL, STATE_LOADING, STATE_REGISTER})
         @interface ProgresViewState {
         }
 
@@ -84,7 +84,6 @@ public class ProgressCustomView extends FrameLayout {
 
     public void setmProgressTitle(String mProgressTitle) {
         if (mProgressTitle == null || mProgressTitle.isEmpty())
-            mProgressTitle = "";
         mBinding.progressTitle.setText(mProgressTitle);
     }
 
