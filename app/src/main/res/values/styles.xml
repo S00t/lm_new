@@ -79,4 +79,32 @@
         <item name="android:padding">@dimen/FragmentWhitePadding</item>
     </style>
 
+
+    <!-- DRAWER -->
+    <style name="HeaderParent">
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+    <style name="HeaderParentNameAndMail">
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_marginLeft">@dimen/HeaderParentMarginLeft</item>
+    </style>
+    <style name="HeaderMail">
+        <item name="android:textSize">@dimen/HeaderTextSize</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:layout_marginTop">@dimen/HeaderMailMarginTop</item>
+    </style>
+    <style name="HeaderName">
+        <item name="android:textSize">@dimen/HeaderTextSize</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="HeaderAvatar">
+        <item name="android:layout_marginLeft">@dimen/HeaderAvatarMarginLeft</item>
+        <item name="android:layout_marginTop">@dimen/HeaderAvatarMarginTop</item>
+        <item name="android:src">@drawable/ic_launcher</item>
+        <!--<item name="android:background">@color/White</item>-->
+    </style>
+
 </resources>

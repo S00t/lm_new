@@ -50,13 +50,6 @@ public class RegisterActivity extends AppCompatActivity implements RegisterInter
         mRegisterBinding.registerProgress.setProgressInterface(this);
         setProgresViewState(STATE_NORMAL, null, null);
 
-        if (mRegisterBinding.RegisterName != null)
-            mRegisterBinding.RegisterName.setOnEditorActionListener((TextView v, int actionId, KeyEvent event) -> {
-                ViewUtils.hideKeyboard(this, v);
-                registerClick(v);
-                return true;
-            });
-
     }
 
     public void registerClick(View v) {

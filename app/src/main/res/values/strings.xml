@@ -20,7 +20,7 @@
     <string name="all_fields_mandatory">Wszystkie pola w formularzu są obowiązkowe</string>
     <string name="password_empty">Błędne hasło</string>
     <string name="login_empty">Błędny login</string>
-    <string name="empty_field">Puste pole</string>
+    <string name="empty_field">Niepoprawne dane</string>
     <string name="paswords_not_matching">Wprowadzone hasła różnią się od siebie</string>
     <string name="register_label">Rejestracja</string>
     <string name="permission_error">Bez przydzielonych uprawnień nie jest możliwe skorzystanie z tej funkcjonalności</string>
@@ -31,6 +31,16 @@
         i duże litery\n-znaki specjalne lub cyfry.
     </string>
 
+
+    <!--Menu drawer items-->
+    <string name="nav_drawer_group_events">Wydarzenia</string>
+    <string name="nav_drawer_item_search">Znajdź wydarzenie/ Rezerwacje</string>
+    <string name="nav_drawer_item_event_add">Dodaj nowe wydarzenie</string>
+    <string name="nav_drawer_item_my_events">Moje wydarzenia</string>
+    <string name="nav_drawer_group_account">Użytkownik</string>
+    <string name="nav_drawer_item_account">Moje konto</string>
+    <string name="nav_drawer_item_change_password">Zmień hasło</string>
+    <string name="nav_drawer_item_logout">Wyloguj</string>
 
 
 </resources>

@@ -58,14 +58,6 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface, 
 
         mLoginBinding.loginProgress.setProgressInterface(this);
         setProgresViewState(STATE_NORMAL, null, null);
-
-        if (mLoginBinding.loginInput != null)
-            mLoginBinding.loginInput.setOnEditorActionListener((TextView v, int actionId, KeyEvent event) -> {
-
-                ViewUtils.hideKeyboard(this, v);
-                loginClick(v);
-                return true;
-            });
     }
 
     @Override
@@ -96,7 +88,7 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface, 
     }
 
     public void loginClick(View v) {
-
+        if ((mController.isNetworkAvaible())){
         setProgresViewState(STATE_LOADING, "Logowanie...", true);
         if ((mLoginBinding.loginInput.getText() == null || mLoginBinding.loginInput.getText().toString().isEmpty()) &&
                 (mLoginBinding.passwordInput.getText() == null || mLoginBinding.passwordInput.getText().toString().isEmpty())) {
@@ -112,8 +104,11 @@ public class LoginActivity extends AppCompatActivity implements LoginInterface, 
             mLoginBinding.passwordInput.setError(this.getResources().getString(R.string.password_empty));
             setProgresViewState(STATE_NORMAL, null, null);
             showToast(this.getResources().getString(R.string.login_password_empty));
-        } else if ((mController.isNetworkAvaible())) {
+        } else {
             mController.login(mLoginBinding.loginInput.getText() != null ? mLoginBinding.loginInput.getText().toString().trim() : null, mLoginBinding.passwordInput.getText().toString());
+        }
+        }else{
+
         }
     }
 

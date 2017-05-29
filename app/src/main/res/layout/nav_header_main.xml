@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<RelativeLayout
+
+    style="@style/HeaderParent"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/HeaderParent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <LinearLayout
+        style="@style/HeaderParentNameAndMail"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/HeaderParentNameAndMailHeight"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/headerName"
+            style="@style/HeaderName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <TextView
+            android:id="@+id/headerMail"
+            style="@style/HeaderMail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/headerAvatar"
+        style="@style/HeaderAvatar"
+        android:layout_width="@dimen/HeaderAvatarWidth"
+        android:layout_height="@dimen/HeaderAvatarHeight"
+        />
+
+</RelativeLayout>
+</layout>

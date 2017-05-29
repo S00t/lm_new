@@ -1,8 +1,11 @@
 package soot.letsmeet.activities.login.controllers;
 
+import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
+import android.view.View;
 
 import javax.inject.Inject;
 
@@ -22,6 +25,7 @@ import soot.letsmeet.sqlite.repository.LoggerRepository;
 import soot.letsmeet.sqlite.repository.TokenRepository;
 import soot.letsmeet.utils.ConnectivityUtil;
 import soot.letsmeet.utils.LoginUtils;
+import soot.letsmeet.utils.SnackBarUtils;
 import soot.letsmeet.utils.TimeUtil;
 import soot.letsmeet.utils.TokenUtil;
 import soot.letsmeet.webservices.LoginWebServices;
@@ -48,6 +52,8 @@ public class LoginController extends BaseController<LoginInterface> {
     protected TokenRepository mTokenRepository;
     @Inject
     protected AccountRepository mAccountRepository;
+    @Inject
+    protected SnackBarUtils mSnackBarUtils;
 
     private HandlerThread mHandlerThread;
     private Token mToken;
@@ -74,6 +80,10 @@ public class LoginController extends BaseController<LoginInterface> {
 
     public boolean isNetworkAvaible() {
         return mConnectivityUtil.isNetworkAvailable();
+    }
+
+    public Snackbar showSnackbar(Context context, View parent, String message){
+        return mSnackBarUtils.makeSnackBar(context, parent, message);
     }
 
 
